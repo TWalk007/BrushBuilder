@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5346817666433119785}
   - component: {fileID: 5963067840864712270}
   - component: {fileID: 688774091276087431}
+  - component: {fileID: 4348044180531404429}
   m_Layer: 0
   m_Name: ImageManager
   m_TagString: Untagged
@@ -44,12 +45,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5cb1506dc82e24f84ac407656bc47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brushImages:
-  - {fileID: 21300000, guid: 64f4d0a3cfbd4f843b7d06a51e41aa93, type: 3}
-  - {fileID: 21300000, guid: ab456d5bbbf9b404e9bead4c8e9839ef, type: 3}
-  - {fileID: 21300000, guid: 53c862a7d6999f641ba137e96ef915c5, type: 3}
-  - {fileID: 21300000, guid: a6c683ee3e9a4bd4db52f710366b7fbb, type: 3}
   family: 0
+  wht1: {fileID: 0}
+  wht2: {fileID: 0}
+  wht3: {fileID: 0}
+  gc1: {fileID: 0}
+  gc2: {fileID: 0}
+  gc3: {fileID: 0}
+  ac1: {fileID: 0}
+  ac2: {fileID: 0}
+  ac3: {fileID: 0}
+  wht1SkeletonSwatchHL: {fileID: 0}
+  wht2SkeletonSwatchHL: {fileID: 0}
+  wht3SkeletonSwatchHL: {fileID: 0}
+  gc1SkeletonSwatchHL: {fileID: 0}
+  gc2SkeletonSwatchHL: {fileID: 0}
+  gc3SkeletonSwatchHL: {fileID: 0}
+  ac1SkeletonSwatchHL: {fileID: 0}
+  ac2SkeletonSwatchHL: {fileID: 0}
+  ac3SkeletonSwatchHL: {fileID: 0}
+  whiteningFamily: {fileID: 21300000, guid: 7f47f1adbe3647a44af63a80f07a60b7, type: 3}
+  whiteningFamilyHL: {fileID: 21300000, guid: 5fecf353dc24d9c48a1ce1b21f8efadc, type: 3}
+  gumCareFamily: {fileID: 21300000, guid: 58840595cfd12624bbb7aa42446f107e, type: 3}
+  gumCareFamilyHL: {fileID: 21300000, guid: c1eedbb4fe428a247ba3a9fd7577eed0, type: 3}
+  advCleaningFamily: {fileID: 21300000, guid: 3817dadaeef632c47b4372f921890953, type: 3}
+  advCleaningFamilyHL: {fileID: 21300000, guid: b80e366c0d01ddc4c84b3836b6f8f0a3,
+    type: 3}
+  currentBristleSwatchHL: {fileID: 0}
+  brushDisplayPanels: []
+  brushHeadDisplayPanels: []
+  activeHandleColors: []
+  activeBristleColors: []
+  activeLargeBristleHeads: []
+  activeHandle: {fileID: 0}
+  activeHandleHead: {fileID: 0}
 --- !u!114 &688774091276087431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,30 +91,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce46087f1cd104d47ad8b92e8b7c5049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TPEColors:
-  - {fileID: 21300000, guid: 1e948b7bb65c1024587d9f98f501de74, type: 3}
-  - {fileID: 21300000, guid: 7d780245c4a3bad4aa3c88b412a1ddc6, type: 3}
-  - {fileID: 21300000, guid: 45ccd06664523e94691e795a54e8745c, type: 3}
-  - {fileID: 21300000, guid: 5506f0d1adb3d6f4bb158bdb09a86d94, type: 3}
+  brushDisplayPanels:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  bristleBrushSetA:
-  - {fileID: 21300000, guid: 99fb7ed35632f354d89ac3e939821691, type: 3}
-  - {fileID: 21300000, guid: dc6a8786c9a0b5a4682ee86edf4e0e3f, type: 3}
-  - {fileID: 21300000, guid: 9385f7b81281cb246b1000b837b77e87, type: 3}
-  - {fileID: 21300000, guid: 63f995630544dba409ddb12da0eded80, type: 3}
+  brushHeadDisplayPanels:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  bristleBrushSetB:
+  handleColors:
+  - {fileID: 21300000, guid: 02a10000f5e630247982d129b83842c3, type: 3}
+  - {fileID: 21300000, guid: 2793251082c37374cb315def8a9488cb, type: 3}
+  - {fileID: 21300000, guid: 41653daf9d5002140bed263f3548f199, type: 3}
+  - {fileID: 21300000, guid: 2e6e38e313ba30d4b9f7f96e587a1167, type: 3}
+  - {fileID: 21300000, guid: 7ad7930e96ee37b448a2348851531554, type: 3}
+  - {fileID: 21300000, guid: 141511e29deaebf4eb41e00cad64e4bb, type: 3}
+  - {fileID: 21300000, guid: 3b812b7493e43994eab5ea7322f66bc8, type: 3}
+  - {fileID: 21300000, guid: 2d29a390505bbbc489e452c2f6cb6ce8, type: 3}
+  handleHeadColors:
+  - {fileID: 21300000, guid: a94a6cc68f36a8a4e88fc84a441533e9, type: 3}
+  - {fileID: 21300000, guid: f9fd5cf6954993c4d93ac232d3af83c7, type: 3}
+  - {fileID: 21300000, guid: f2fe09d91ef85a749974ffd69cfe0c1f, type: 3}
+  BristleHead: {fileID: 0}
+  largeBristleHeadSprites:
+  - {fileID: 21300000, guid: 99339c20a3b8ece428be3bae0a93752c, type: 3}
+  - {fileID: 21300000, guid: 5f0e6329d171ed14698b9fc31b703026, type: 3}
+  - {fileID: 21300000, guid: 0ec634926fbaaff4c9942051a0c7b857, type: 3}
+--- !u!114 &4348044180531404429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963067840864712269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca86eb8e4966a843bf16052e73005c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brushDisplayPanels:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  brushHeadDisplayPanels:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  handleColors:
+  - {fileID: 21300000, guid: d75038fd6af17cf40b8b3ea87ef82df5, type: 3}
+  - {fileID: 21300000, guid: a90318b981e753843900c1f5bcb9ac40, type: 3}
+  - {fileID: 21300000, guid: c4a9a647ee788f14993f216feb4fd574, type: 3}
+  - {fileID: 21300000, guid: b165cf67d8fb13d4180e52bd09718a49, type: 3}
+  - {fileID: 21300000, guid: 6dfef1a9b13622649bf78fc354dfbbe8, type: 3}
+  - {fileID: 21300000, guid: ddb225d2deacb97448af7e32bd9333fd, type: 3}
+  - {fileID: 21300000, guid: 9bdfbc20edba88e47a01d2899cd0dadc, type: 3}
+  - {fileID: 21300000, guid: a5dd82b96ccb04b4980e1b21780bd24e, type: 3}
+  handleHeadColors:
+  - {fileID: 21300000, guid: 595b50eedd4f55d468a61733d894d851, type: 3}
+  - {fileID: 21300000, guid: a6c1271fe23a6f0468bfe6cbe472a032, type: 3}
+  - {fileID: 21300000, guid: b1625644f0382264b9ced8efba8bb3eb, type: 3}
+  BristleHead: {fileID: 0}
+  largeBristleHeadSprites:
+  - {fileID: 21300000, guid: 8edf457cffa841e4d8632283acfa6831, type: 3}
+  - {fileID: 21300000, guid: 32700356f18e2ea4d869a959c111b371, type: 3}
+  - {fileID: 21300000, guid: 5f4aca2af09382b4197ed7eacefde425, type: 3}

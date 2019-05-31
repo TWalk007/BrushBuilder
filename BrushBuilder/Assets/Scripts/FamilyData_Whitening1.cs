@@ -5,12 +5,25 @@ using UnityEngine.UI;
 
 public class FamilyData_Whitening1 : MonoBehaviour
 {
-    [Header ("TPE Colors")]
-    public Sprite[] TPEColors = new Sprite[8];
+    [Header("BRUSH DISPLAY PANELS")]
+    public GameObject[] brushDisplayPanels = new GameObject[4];
 
-    [Header ("Bristle Brush Set A")]
-    public Sprite[] bristleBrushSetA = new Sprite[8];
+    [Header("BRUSH HEAD DISPLAY PANELS")]
+    public GameObject[] brushHeadDisplayPanels = new GameObject[4];
 
-    [Header("Bristle Brush Set B")]
-    public Sprite[] bristleBrushSetB = new Sprite[8];
+    [Header ("HANDLE COLORS")]
+    public Sprite[] handleColors = new Sprite[8];
+
+    [Header("HANDLE HEAD COLORS")]
+    [Header("_____________________________________________________________")]
+    public Sprite[] handleHeadColors = new Sprite[3];
+
+    [Space(10)]
+    [Header("BRISTLE HEAD IMAGE")]
+    [Header("_____________________________________________________________")]
+    public GameObject BristleHead;
+
+    [Header("LARGE BRISTLE HEAD SPRITES")]
+    public Sprite[] largeBristleHeadSprites = new Sprite[3];
+
 }

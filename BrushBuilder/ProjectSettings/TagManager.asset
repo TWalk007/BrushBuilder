@@ -3,7 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HandleColorSwatch1
+  - HandleColorSwatch2
+  - HandleColorSwatch3
+  - HandleColorSwatch4
+  - HandleColorSwatch5
+  - HandleColorSwatch6
+  - HandleColorSwatch7
+  - HandleColorSwatch8
+  - HandleDisplayA
+  - HandleDisplayB
+  - HandleDisplayC
+  - HandleDisplayD
+  - BristleSwatchA
+  - BristleSwatchB
+  - BristleSwatchC
   layers:
   - Default
   - TransparentFX
