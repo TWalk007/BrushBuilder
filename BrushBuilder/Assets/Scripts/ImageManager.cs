@@ -67,12 +67,20 @@ public class ImageManager : MonoBehaviour
     private GameObject currentPanel;
     private GameObject currentHL;
 
+    public bool familyHasChanged = false;
+
     public GameObject currentBristleSwatchHL;
 
     //TODO Place all of the scripts for each family here.
     private FamilyData_Whitening1 famDataWht1;
     private FamilyData_Whitening2 famDataWht2;
-
+    private FamilyData_Whitening3 famDataWht3;
+    private FamilyData_GumCare1 famDataGc1;
+    private FamilyData_GumCare2 famDataGc2;
+    private FamilyData_GumCare3 famDataGc3;
+    private FamilyData_AdvancedCleaning1 famDataAc1;
+    private FamilyData_AdvancedCleaning2 famDataAc2;
+    private FamilyData_AdvancedCleaning3 famDataAc3;
 
     // This is a placeholder variable to put the correct family colors to grab into these slots.
     [HideInInspector]
@@ -97,12 +105,23 @@ public class ImageManager : MonoBehaviour
 
         famDataWht1 = this.gameObject.GetComponent<FamilyData_Whitening1>();
         famDataWht2 = this.gameObject.GetComponent<FamilyData_Whitening2>();
+        famDataWht3 = this.gameObject.GetComponent<FamilyData_Whitening3>();
+        famDataGc1 = this.gameObject.GetComponent<FamilyData_GumCare1>();
+        famDataGc2 = this.gameObject.GetComponent<FamilyData_GumCare2>();
+        famDataGc3 = this.gameObject.GetComponent<FamilyData_GumCare3>();
+        famDataAc1 = this.gameObject.GetComponent<FamilyData_AdvancedCleaning1>();
+        famDataAc2 = this.gameObject.GetComponent<FamilyData_AdvancedCleaning2>();
+        famDataAc3 = this.gameObject.GetComponent<FamilyData_AdvancedCleaning3>();
+
+        brushDisplayPanels = famDataWht1.brushDisplayPanels;
+        brushHeadDisplayPanels = famDataWht1.brushHeadDisplayPanels;
+        activeHandleColors = famDataWht1.handleColors;
+        activeBristleColors = famDataWht1.handleHeadColors;
+        activeLargeBristleHeads = famDataWht1.largeBristleHeadSprites;
     }
 
     private void Update()
     {
-
-
         #region enum Family Switch
         if (family == Family.Whitening1)
         {
@@ -114,15 +133,12 @@ public class ImageManager : MonoBehaviour
             currentHL = wht1SkeletonSwatchHL;
             currentHL.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamilyHL;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamily;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamily;
+            SwitchFamilyHighlight();
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
 
-            brushDisplayPanels = famDataWht1.brushDisplayPanels;
-            brushHeadDisplayPanels = famDataWht1.brushHeadDisplayPanels;
-            activeHandleColors = famDataWht1.handleColors;
-            activeBristleColors = famDataWht1.handleHeadColors;
-            activeLargeBristleHeads = famDataWht1.largeBristleHeadSprites;
         }
         else if (family == Family.Whitening2)
         {
@@ -134,15 +150,12 @@ public class ImageManager : MonoBehaviour
             currentHL = wht2SkeletonSwatchHL;
             currentHL.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamilyHL;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamily;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamily;
+            SwitchFamilyHighlight();
 
-            brushDisplayPanels = famDataWht2.brushDisplayPanels;
-            brushHeadDisplayPanels = famDataWht2.brushHeadDisplayPanels;
-            activeHandleColors = famDataWht2.handleColors;
-            activeBristleColors = famDataWht2.handleHeadColors;
-            activeLargeBristleHeads = famDataWht2.largeBristleHeadSprites;
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
         }
         else if (family == Family.Whitening3)
         {
@@ -150,13 +163,16 @@ public class ImageManager : MonoBehaviour
             currentPanel = wht3;
             currentPanel.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamilyHL;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamily;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamily;
+            SwitchFamilyHighlight();
 
             currentHL.SetActive(false);
             currentHL = wht3SkeletonSwatchHL;
             currentHL.SetActive(true);
+
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
         }
         else if (family == Family.GumCare1)
         {
@@ -164,13 +180,16 @@ public class ImageManager : MonoBehaviour
             currentPanel = gc1;
             currentPanel.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamily;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamilyHL;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamily;
+            SwitchFamilyHighlight();
 
             currentHL.SetActive(false);
             currentHL = gc1SkeletonSwatchHL;
             currentHL.SetActive(true);
+
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
         }
         else if (family == Family.GumCare2)
         {
@@ -178,13 +197,16 @@ public class ImageManager : MonoBehaviour
             currentPanel = gc2;
             currentPanel.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamily;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamilyHL;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamily;
+            SwitchFamilyHighlight();
 
             currentHL.SetActive(false);
             currentHL = gc2SkeletonSwatchHL;
             currentHL.SetActive(true);
+
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
         }
         else if (family == Family.GumCare3)
         {
@@ -192,13 +214,16 @@ public class ImageManager : MonoBehaviour
             currentPanel = gc3;
             currentPanel.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamily;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamilyHL;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamily;
+            SwitchFamilyHighlight();
 
             currentHL.SetActive(false);
             currentHL = gc3SkeletonSwatchHL;
             currentHL.SetActive(true);
+
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
         }
         else if (family == Family.AdvancedCleaning1)
         {
@@ -206,13 +231,16 @@ public class ImageManager : MonoBehaviour
             currentPanel = ac1;
             currentPanel.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamily;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamily;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamilyHL;
+            SwitchFamilyHighlight();
 
             currentHL.SetActive(false);
             currentHL = ac1SkeletonSwatchHL;
             currentHL.SetActive(true);
+
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
         }
         else if (family == Family.AdvancedCleaning2)
         {
@@ -220,13 +248,16 @@ public class ImageManager : MonoBehaviour
             currentPanel = ac2;
             currentPanel.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamily;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamily;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamilyHL;
+            SwitchFamilyHighlight();
 
             currentHL.SetActive(false);
             currentHL = ac2SkeletonSwatchHL;
             currentHL.SetActive(true);
+
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
         }
         else if (family == Family.AdvancedCleaning3)
         {
@@ -234,13 +265,16 @@ public class ImageManager : MonoBehaviour
             currentPanel = ac3;
             currentPanel.SetActive(true);
 
-            whtFamily.GetComponent<Image>().sprite = whiteningFamily;
-            gcFamily.GetComponent<Image>().sprite = gumCareFamily;
-            acFamily.GetComponent<Image>().sprite = advCleaningFamilyHL;
+            SwitchFamilyHighlight();
 
             currentHL.SetActive(false);
             currentHL = ac3SkeletonSwatchHL;
             currentHL.SetActive(true);
+
+            if (familyHasChanged)
+            {
+                FamilyChange();
+            }
         }
         else
         {
@@ -248,4 +282,202 @@ public class ImageManager : MonoBehaviour
         }
         #endregion
     }
+
+    private void SwitchFamilyHighlight()
+    {
+        if (currentPanel == wht1 || currentPanel == wht2 || currentPanel == wht3)
+        {
+            whtFamily.GetComponent<Image>().sprite = whiteningFamilyHL;
+            gcFamily.GetComponent<Image>().sprite = gumCareFamily;
+            acFamily.GetComponent<Image>().sprite = advCleaningFamily;
+        }
+        else if (currentPanel == gc1 || currentPanel == gc2 || currentPanel == gc3)
+        {
+            gcFamily.GetComponent<Image>().sprite = gumCareFamilyHL;
+            whtFamily.GetComponent<Image>().sprite = whiteningFamily;
+            acFamily.GetComponent<Image>().sprite = advCleaningFamily;
+        }
+        else if (currentPanel == ac1 || currentPanel == ac2 || currentPanel == ac3)
+        {
+            acFamily.GetComponent<Image>().sprite = advCleaningFamilyHL;
+            gcFamily.GetComponent<Image>().sprite = gumCareFamily;
+            whtFamily.GetComponent<Image>().sprite = whiteningFamily;
+        }
+    }
+    
+    public void FamilyChange()
+    {
+        if (family == Family.Whitening1)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataWht1.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataWht1.brushHeadDisplayPanels;
+            activeHandleColors = famDataWht1.handleColors;
+            activeBristleColors = famDataWht1.handleHeadColors;
+            activeLargeBristleHeads = famDataWht1.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = wht1.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;
+        }
+        else if (family == Family.Whitening2)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataWht2.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataWht2.brushHeadDisplayPanels;
+            activeHandleColors = famDataWht2.handleColors;
+            activeBristleColors = famDataWht2.handleHeadColors;
+            activeLargeBristleHeads = famDataWht2.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = wht2.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;           
+        }
+        else if (family == Family.Whitening3)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataWht3.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataWht3.brushHeadDisplayPanels;
+            activeHandleColors = famDataWht3.handleColors;
+            activeBristleColors = famDataWht3.handleHeadColors;
+            activeLargeBristleHeads = famDataWht3.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = wht3.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;
+        }
+        else if (family == Family.GumCare1)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataGc1.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataGc1.brushHeadDisplayPanels;
+            activeHandleColors = famDataGc1.handleColors;
+            activeBristleColors = famDataGc1.handleHeadColors;
+            activeLargeBristleHeads = famDataGc1.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = gc1.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;
+        }
+        else if (family == Family.GumCare2)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataGc2.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataGc2.brushHeadDisplayPanels;
+            activeHandleColors = famDataGc2.handleColors;
+            activeBristleColors = famDataGc2.handleHeadColors;
+            activeLargeBristleHeads = famDataGc2.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = gc2.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;
+        }
+        else if (family == Family.GumCare3)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataGc3.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataGc3.brushHeadDisplayPanels;
+            activeHandleColors = famDataGc3.handleColors;
+            activeBristleColors = famDataGc3.handleHeadColors;
+            activeLargeBristleHeads = famDataGc3.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = gc3.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;
+        }
+        else if (family == Family.AdvancedCleaning1)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataAc1.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataAc1.brushHeadDisplayPanels;
+            activeHandleColors = famDataAc1.handleColors;
+            activeBristleColors = famDataAc1.handleHeadColors;
+            activeLargeBristleHeads = famDataAc1.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = ac1.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;
+        }
+        else if (family == Family.AdvancedCleaning2)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataAc2.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataAc2.brushHeadDisplayPanels;
+            activeHandleColors = famDataAc2.handleColors;
+            activeBristleColors = famDataAc2.handleHeadColors;
+            activeLargeBristleHeads = famDataAc2.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = ac2.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;
+        }
+        else if (family == Family.AdvancedCleaning3)
+        {
+            activeHandle.transform.GetChild(0).gameObject.SetActive(false);
+            currentBristleSwatchHL.SetActive(false);
+
+            brushDisplayPanels = famDataAc3.brushDisplayPanels;
+            brushHeadDisplayPanels = famDataAc3.brushHeadDisplayPanels;
+            activeHandleColors = famDataAc3.handleColors;
+            activeBristleColors = famDataAc3.handleHeadColors;
+            activeLargeBristleHeads = famDataAc3.largeBristleHeadSprites;
+
+            activeHandle = brushDisplayPanels[0];
+            activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            currentBristleSwatchHL = ac3.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
+            currentBristleSwatchHL.SetActive(true);
+
+            familyHasChanged = false;
+        }
+    }
+
 }
