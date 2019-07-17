@@ -61,15 +61,21 @@ public class ImageManager : MonoBehaviour
     public GameObject whtFamily;
     public GameObject gcFamily;
     public GameObject acFamily;
+
+    [Space(10)]
+    [Header("FAMILY BRISTLE COLORS")]
+    [Header("_____________________________________________________________")]
+    public GameObject currentBristleSwatchHL;
+
     #endregion
 
 
     private GameObject currentPanel;
     private GameObject currentHL;
 
+    [HideInInspector]
     public bool familyHasChanged = false;
 
-    public GameObject currentBristleSwatchHL;
 
     //TODO Place all of the scripts for each family here.
     private FamilyData_Whitening1 famDataWht1;
@@ -316,10 +322,13 @@ public class ImageManager : MonoBehaviour
             brushHeadDisplayPanels = famDataWht1.brushHeadDisplayPanels;
             activeHandleColors = famDataWht1.handleColors;
             activeBristleColors = famDataWht1.handleHeadColors;
+            activeHandleHead = famDataWht1.BristleHead;
             activeLargeBristleHeads = famDataWht1.largeBristleHeadSprites;
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = wht1.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);
@@ -335,10 +344,16 @@ public class ImageManager : MonoBehaviour
             brushHeadDisplayPanels = famDataWht2.brushHeadDisplayPanels;
             activeHandleColors = famDataWht2.handleColors;
             activeBristleColors = famDataWht2.handleHeadColors;
+            activeHandleHead = famDataWht2.BristleHead;
             activeLargeBristleHeads = famDataWht2.largeBristleHeadSprites;
+            Debug.Log(activeLargeBristleHeads[0].name);
+            Debug.Log(activeLargeBristleHeads[1].name);
+            Debug.Log(activeLargeBristleHeads[2].name);
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = wht2.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);
@@ -354,10 +369,13 @@ public class ImageManager : MonoBehaviour
             brushHeadDisplayPanels = famDataWht3.brushHeadDisplayPanels;
             activeHandleColors = famDataWht3.handleColors;
             activeBristleColors = famDataWht3.handleHeadColors;
+            activeHandleHead = famDataWht3.BristleHead;
             activeLargeBristleHeads = famDataWht3.largeBristleHeadSprites;
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = wht3.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);
@@ -373,10 +391,13 @@ public class ImageManager : MonoBehaviour
             brushHeadDisplayPanels = famDataGc1.brushHeadDisplayPanels;
             activeHandleColors = famDataGc1.handleColors;
             activeBristleColors = famDataGc1.handleHeadColors;
+            activeHandleHead = famDataGc1.BristleHead;
             activeLargeBristleHeads = famDataGc1.largeBristleHeadSprites;
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = gc1.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);
@@ -392,10 +413,13 @@ public class ImageManager : MonoBehaviour
             brushHeadDisplayPanels = famDataGc2.brushHeadDisplayPanels;
             activeHandleColors = famDataGc2.handleColors;
             activeBristleColors = famDataGc2.handleHeadColors;
+            activeHandleHead = famDataGc2.BristleHead;
             activeLargeBristleHeads = famDataGc2.largeBristleHeadSprites;
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = gc2.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);
@@ -410,11 +434,15 @@ public class ImageManager : MonoBehaviour
             brushDisplayPanels = famDataGc3.brushDisplayPanels;
             brushHeadDisplayPanels = famDataGc3.brushHeadDisplayPanels;
             activeHandleColors = famDataGc3.handleColors;
+            activeHandleHead = famDataGc3.BristleHead;
             activeBristleColors = famDataGc3.handleHeadColors;
+
             activeLargeBristleHeads = famDataGc3.largeBristleHeadSprites;
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = gc3.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);
@@ -430,10 +458,13 @@ public class ImageManager : MonoBehaviour
             brushHeadDisplayPanels = famDataAc1.brushHeadDisplayPanels;
             activeHandleColors = famDataAc1.handleColors;
             activeBristleColors = famDataAc1.handleHeadColors;
+            activeHandleHead = famDataAc1.BristleHead;
             activeLargeBristleHeads = famDataAc1.largeBristleHeadSprites;
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = ac1.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);
@@ -449,10 +480,13 @@ public class ImageManager : MonoBehaviour
             brushHeadDisplayPanels = famDataAc2.brushHeadDisplayPanels;
             activeHandleColors = famDataAc2.handleColors;
             activeBristleColors = famDataAc2.handleHeadColors;
+            activeHandleHead = famDataAc2.BristleHead;
             activeLargeBristleHeads = famDataAc2.largeBristleHeadSprites;
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = ac2.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);
@@ -468,10 +502,13 @@ public class ImageManager : MonoBehaviour
             brushHeadDisplayPanels = famDataAc3.brushHeadDisplayPanels;
             activeHandleColors = famDataAc3.handleColors;
             activeBristleColors = famDataAc3.handleHeadColors;
+            activeHandleHead = famDataAc3.BristleHead;
             activeLargeBristleHeads = famDataAc3.largeBristleHeadSprites;
 
             activeHandle = brushDisplayPanels[0];
             activeHandle.transform.GetChild(0).gameObject.SetActive(true);
+
+            activeHandleHead.GetComponent<Image>().sprite = activeLargeBristleHeads[0];
 
             currentBristleSwatchHL = ac3.transform.GetChild(2).transform.GetChild(1).GetChild(0).gameObject;
             currentBristleSwatchHL.SetActive(true);

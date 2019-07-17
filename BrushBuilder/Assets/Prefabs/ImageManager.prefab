@@ -81,8 +81,8 @@ MonoBehaviour:
   whtFamily: {fileID: 0}
   gcFamily: {fileID: 0}
   acFamily: {fileID: 0}
-  familyHasChanged: 0
   currentBristleSwatchHL: {fileID: 0}
+  familyHasChanged: 0
   brushDisplayPanels: []
   brushHeadDisplayPanels: []
   activeHandleColors: []

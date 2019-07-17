@@ -31,7 +31,6 @@ public class BristleSwapper : MonoBehaviour
             {
                 x.GetComponent<Image>().sprite = imageManager.activeBristleColors[0];
                 imageManager.activeHandleHead.GetComponent<Image>().sprite = imageManager.activeLargeBristleHeads[0];
-
                 codeChanger.codeHasChanged = true;
                 codeChanger.bristleCodeTemp = codeChanger.bristleCode[0];
             }
